@@ -19,7 +19,7 @@ function inOrderTraversal(root, arr) {
 #### PostOrder Traversel
 
 ```js
-function inOrderTraversal(root, arr) {
+function postOrderTraversal(root, arr) {
   arr = arr || [];
   if (root !== null) {
     inOrderTraversal(root.left, arr);
@@ -33,7 +33,7 @@ function inOrderTraversal(root, arr) {
 #### PreOrder Traversel
 
 ```js
-function inOrderTraversal(root, arr) {
+function preOrderTraversal(root, arr) {
   arr = arr || [];
   if (root !== null) {
     arr.push(root.val);
