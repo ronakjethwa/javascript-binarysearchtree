@@ -68,3 +68,27 @@ cosnt postOrder = function(root){
     return arr;
 }
 ```
+#### Validate Binary Search Tree
+```js
+ function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
+var isValidBST = function(root) {
+
+  function helper(root, min, max) {
+    if (!root) return true; // We hit the end of the path
+        
+    if ((min !== null && root.val <= min) || (max !== null && root.val >= max)) {
+      return false; // current node's val doesn't satisfy the BST rules
+    }
+        
+    // Continue to scan left and right
+    return helper(root.left, min, root.val) && helper(root.right, root.val, max);
+  }
+    
+  return helper(root, null, null);
+};
+```
