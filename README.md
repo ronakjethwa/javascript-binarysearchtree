@@ -116,3 +116,18 @@ const isSameTree = function(p,q){
     return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 }
 ```
+
+#### Unique Numbers Of Binary Search Trees
+```js
+var numTrees = function(n) {
+  // simple factorial problem
+  function factorial(num){
+    if (num <= 0) return 1;
+    else return num * factorial(num-1);
+  }
+  
+  // catalan number formula to count total sequance of numbers
+  // 2n!/(n+1)!n!
+  return factorial( 2 * n ) / ( factorial( n + 1 ) * factorial( n ) );
+};
+```
