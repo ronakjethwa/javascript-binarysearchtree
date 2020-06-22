@@ -69,6 +69,25 @@ cosnt postOrder = function(root){
 }
 ```
 
+#### N-ary Tree Preorder Traversal
+
+```js
+var preorder = function (root) {
+  const result = [];
+  function traverse(tree) {
+    if (!tree) {
+      return result;
+    }
+    result.push(tree.val);
+    for (let i = 0; i < tree.children.length; i++) {
+      traverse(tree.children[i]);
+    }
+    return result;
+  }
+  return traverse(root);
+};
+```
+
 #### Validate Binary Search Tree
 
 ```js
@@ -82,7 +101,8 @@ var isValidBST = function (root) {
   function helper(root, min, max) {
     if (!root) return true; // We hit the end of the path
 
-    if ( (min !== null && root.val <= min) || (max !== null && root.val >= max) ) return false;
+    if ((min !== null && root.val <= min) || (max !== null && root.val >= max))
+      return false;
     // current node's val doesn't satisfy the BST rules
 
     // Continue to scan left and right
@@ -118,16 +138,17 @@ const isSameTree = function(p,q){
 ```
 
 #### Unique Numbers Of Binary Search Trees
+
 ```js
-var numTrees = function(n) {
+var numTrees = function (n) {
   // simple factorial problem
-  function factorial(num){
+  function factorial(num) {
     if (num <= 0) return 1;
-    else return num * factorial(num-1);
+    else return num * factorial(num - 1);
   }
-  
+
   // catalan number formula to count total sequance of numbers
   // 2n!/(n+1)!n!
-  return factorial( 2 * n ) / ( factorial( n + 1 ) * factorial( n ) );
+  return factorial(2 * n) / (factorial(n + 1) * factorial(n));
 };
 ```
