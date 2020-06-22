@@ -83,7 +83,7 @@ var isValidBST = function (root) {
     if (!root) return true; // We hit the end of the path
 
     if ( (min !== null && root.val <= min) || (max !== null && root.val >= max) ) return false;
-    // // current node's val doesn't satisfy the BST rules
+    // current node's val doesn't satisfy the BST rules
 
     // Continue to scan left and right
     return (
