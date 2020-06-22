@@ -74,13 +74,12 @@ cosnt postOrder = function(root){
 ```js
 var preorder = function(root) {
   const result = [];
-  function traverse(tree) {
-    if (!tree) {
-      return result;
-    }
-    result.push(tree.val);
-    for(let i = 0; i < tree.children.length; i++) {
-      traverse(tree.children[i]);
+  
+  function traverse(node) {
+    if (!node) return result;
+    result.push(node.val);
+    for (child of node.children){
+      traverse(child);
     }
   }
   traverse(root);
