@@ -72,20 +72,20 @@ cosnt postOrder = function(root){
 #### N-ary Tree Preorder Traversal
 
 ```js
-var preorder = function (root) {
+var preorder = function(root) {
   const result = [];
   function traverse(tree) {
     if (!tree) {
       return result;
     }
     result.push(tree.val);
-    for (let i = 0; i < tree.children.length; i++) {
+    for(let i = 0; i < tree.children.length; i++) {
       traverse(tree.children[i]);
     }
-    return result;
   }
-  return traverse(root);
-};
+  traverse(root);
+  return result;
+}
 ```
 
 #### Validate Binary Search Tree
