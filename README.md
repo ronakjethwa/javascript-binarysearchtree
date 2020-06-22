@@ -72,6 +72,12 @@ cosnt postOrder = function(root){
 #### N-ary Tree Preorder Traversal
 
 ```js
+
+function Node(val,children) {
+    this.val = val;
+    this.children = children;
+};
+
 var preorder = function(root) {
   const result = [];
   
