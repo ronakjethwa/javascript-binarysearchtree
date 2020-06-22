@@ -92,3 +92,24 @@ var isValidBST = function(root) {
   return helper(root, null, null);
 };
 ```
+
+#### Same Binary Tree
+```js
+// Definition for a binary tree node.
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
+const isSameTree = function(p,q){
+    // if both null, return true
+    if (!p && !q) return true;
+
+    // if any of null or value is not same, return false
+    if (!p || !q !! p.val !== q.val) return false;
+
+    // keep on traversing left and right for same check
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+}
+```
