@@ -72,25 +72,24 @@ cosnt postOrder = function(root){
 #### N-ary Tree Preorder Traversal
 
 ```js
+function Node(val, children) {
+  this.val = val;
+  this.children = children;
+}
 
-function Node(val,children) {
-    this.val = val;
-    this.children = children;
-};
-
-var preorder = function(root) {
+var preorder = function (root) {
   const result = [];
-  
+
   function traverse(node) {
     if (!node) return;
     result.push(node.val);
-    for (child of node.children){
+    for (child of node.children) {
       traverse(child);
     }
   }
   traverse(root);
   return result;
-}
+};
 ```
 
 #### Validate Binary Search Tree
@@ -156,4 +155,32 @@ var numTrees = function (n) {
   // 2n!/(n+1)!n!
   return factorial(2 * n) / (factorial(n + 1) * factorial(n));
 };
+```
+
+#### Min Value in BST
+
+```js
+function minNode(node) {
+  if (!node) {
+    return 0;
+  }
+  if (node.left) {
+    return minNode(node.left);
+  }
+  return node.value;
+}
+```
+
+#### Max Value in BST
+
+```js
+function maxNode(node) {
+  if (!node) {
+    return 0;
+  }
+  if (node.right) {
+    return maxNode(node.right);
+  }
+  return node.value;
+}
 ```
