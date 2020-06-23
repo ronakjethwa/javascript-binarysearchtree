@@ -176,3 +176,17 @@ function maxNode(node) {
   return node.value;
 }
 ```
+
+#### Min Height of BST
+
+```js
+var minDepth = function (root) {
+  if (!root) return 0;
+  let leftHeight = minDepth(root.left);
+  let rightHeight = minDepth(root.right);
+
+  return leftHeight === 0 || rightHeight === 0
+    ? leftHeight + rightHeight + 1
+    : Math.min(leftHeight, rightHeight) + 1;
+};
+```
