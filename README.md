@@ -152,7 +152,7 @@ var numTrees = function (n) {
     else return num * factorial(num - 1);
   }
 
-  // catalan number formula to count total sequance of numbers
+  // catalan number formula to count total sequence of numbers
   // 2n!/(n+1)!n!
   return factorial(2 * n) / (factorial(n + 1) * factorial(n));
 };
