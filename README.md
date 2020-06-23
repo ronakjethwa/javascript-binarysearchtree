@@ -220,3 +220,19 @@ var sortedArrayToBST = function (nums) {
   return root;
 };
 ```
+
+#### Lowest Common Ancestor of a Binary Tree
+
+```js
+var lowestCommonAncestor = function (root, p, q) {
+  // if root reached to either of the nodes or null, return root
+  if (!root || root === p || root === q) return root;
+
+  const left = lowestCommonAncestor(root.left, p, q);
+  const right = lowestCommonAncestor(root.right, p, q);
+
+  if (!left) return right; // p and q are in the right subtree
+  if (!right) return left; // p and q are in the left subtree
+  return root; // p is in one side and q is in the other
+};
+```
