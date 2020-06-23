@@ -161,12 +161,8 @@ var numTrees = function (n) {
 
 ```js
 function minNode(node) {
-  if (!node) {
-    return 0;
-  }
-  if (node.left) {
-    return minNode(node.left);
-  }
+  if (!node) return 0;
+  if (node.left) return minNode(node.left);
   return node.value;
 }
 ```
@@ -175,12 +171,8 @@ function minNode(node) {
 
 ```js
 function maxNode(node) {
-  if (!node) {
-    return 0;
-  }
-  if (node.right) {
-    return maxNode(node.right);
-  }
+  if (!node) return 0;
+  if (node.right) return maxNode(node.right);
   return node.value;
 }
 ```
