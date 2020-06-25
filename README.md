@@ -194,14 +194,12 @@ var minDepth = function (root) {
 #### Max Height of BST
 
 ```js
-var maxDepth = function (root) {
+var maxDepth = function(root) {
   if (!root) return 0;
   let left = maxDepth(root.left);
   let right = maxDepth(root.right);
-
-  return left === 0 || right === 0
-    ? left + right + 1
-    : Math.max(left, right) + 1;
+  
+  return Math.max(left,right) + 1;
 };
 ```
 
