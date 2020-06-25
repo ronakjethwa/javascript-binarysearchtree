@@ -244,3 +244,21 @@ let invertTree = root => {
     return root;
 };
 ```
+
+#### Flatten Binary Tree to Linked List
+
+```js
+var flatten = function(root) {
+  let prev = null
+  let recurse = (root) => {
+    if (!root)
+        return;
+    recurse(root.right);
+    recurse(root.left);
+    root.right = prev;
+    root.left = null;
+    prev = root;
+  }
+  recurse(root)   
+}
+```
