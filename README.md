@@ -232,3 +232,15 @@ var lowestCommonAncestor = function (root, p, q) {
   return root; // p is in one side and q is in the other
 };
 ```
+
+#### Invert Binary Tree
+
+```js
+let invertTree = root => {
+    if (!root) return null;
+    [root.left, root.right] = [root.right, root.left]; // swap
+    invertTree(root.left);
+    invertTree(root.right);
+    return root;
+};
+```
