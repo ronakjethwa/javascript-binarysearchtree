@@ -185,9 +185,7 @@ var minDepth = function (root) {
   let leftHeight = minDepth(root.left);
   let rightHeight = minDepth(root.right);
 
-  return leftHeight === 0 || rightHeight === 0
-    ? leftHeight + rightHeight + 1
-    : Math.min(leftHeight, rightHeight) + 1;
+  return leftHeight === 0 || rightHeight === 0 ? leftHeight + rightHeight + 1 : Math.min(leftHeight, rightHeight) + 1;
 };
 ```
 
