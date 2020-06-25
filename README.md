@@ -251,8 +251,7 @@ let invertTree = root => {
 var flatten = function(root) {
   let prev = null
   let recurse = (root) => {
-    if (!root)
-        return;
+    if (!root) return;
     recurse(root.right);
     recurse(root.left);
     root.right = prev;
