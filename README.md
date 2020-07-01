@@ -185,19 +185,21 @@ var minDepth = function (root) {
   let leftHeight = minDepth(root.left);
   let rightHeight = minDepth(root.right);
 
-  return leftHeight === 0 || rightHeight === 0 ? leftHeight + rightHeight + 1 : Math.min(leftHeight, rightHeight) + 1;
+  return leftHeight === 0 || rightHeight === 0
+    ? leftHeight + rightHeight + 1
+    : Math.min(leftHeight, rightHeight) + 1;
 };
 ```
 
 #### Max Height of BST
 
 ```js
-var maxDepth = function(root) {
+var maxDepth = function (root) {
   if (!root) return 0;
   let left = maxDepth(root.left);
   let right = maxDepth(root.right);
-  
-  return Math.max(left,right) + 1;
+
+  return Math.max(left, right) + 1;
 };
 ```
 
@@ -236,20 +238,20 @@ var lowestCommonAncestor = function (root, p, q) {
 #### Invert Binary Tree
 
 ```js
-let invertTree = root => {
-    if (!root) return null;
-    [root.left, root.right] = [root.right, root.left]; // swap
-    invertTree(root.left);
-    invertTree(root.right);
-    return root;
+let invertTree = (root) => {
+  if (!root) return null;
+  [root.left, root.right] = [root.right, root.left]; // swap
+  invertTree(root.left);
+  invertTree(root.right);
+  return root;
 };
 ```
 
 #### Flatten Binary Tree to Linked List
 
 ```js
-var flatten = function(root) {
-  let prev = null
+var flatten = function (root) {
+  let prev = null;
   let recurse = (root) => {
     if (!root) return;
     recurse(root.right);
@@ -257,9 +259,9 @@ var flatten = function(root) {
     root.right = prev;
     root.left = null;
     prev = root;
-  }
-  recurse(root)   
-}
+  };
+  recurse(root);
+};
 ```
 
 #### Find All The Lonely Nodes
@@ -277,17 +279,15 @@ var flatten = function(root) {
  * @param {TreeNode} root
  * @return {number[]}
  */
-var getLonelyNodes = function(root) {
-  let nodes = [];
-  
-  function dfs(root){
-    if (!root) return;
-    if (!root.left && root.right) nodes.push(root.right.val);
-    if (!root.right && root.left) nodes.push(root.left.val);
-    dfs(root.left);
-    dfs(root.right);
-  }
-  dfs(root);
-  return nodes;
+var getLonelyNodes = function (root, arr = []) {
+  if (!root) return arr;
+
+  if (!root.left && root.right) arr.push(root.right.val);
+  if (root.left && !root.right) arr.push(root.left.val);
+
+  getLonelyNodes(root.left, arr);
+  getLonelyNodes(root.right, arr);
+
+  return arr;
 };
 ```
