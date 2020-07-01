@@ -261,3 +261,33 @@ var flatten = function(root) {
   recurse(root)   
 }
 ```
+
+#### Find All The Lonely Nodes
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var getLonelyNodes = function(root) {
+  let nodes = [];
+  
+  function dfs(root){
+    if (!root) return;
+    if (!root.left && root.right) nodes.push(root.right.val);
+    if (!root.right && root.left) nodes.push(root.left.val);
+    dfs(root.left);
+    dfs(root.right);
+  }
+  dfs(root);
+  return nodes;
+};
+```
