@@ -279,15 +279,17 @@ var flatten = function (root) {
  * @param {TreeNode} root
  * @return {number[]}
  */
-var getLonelyNodes = function (root, arr = []) {
-  if (!root) return arr;
+var getLonelyNodes = function (root) {
+  let nodes = [];
 
-  if (!root.left && root.right) arr.push(root.right.val);
-  if (root.left && !root.right) arr.push(root.left.val);
-
-  getLonelyNodes(root.left, arr);
-  getLonelyNodes(root.right, arr);
-
-  return arr;
+  function dfs(root) {
+    if (!root) return;
+    if (!root.left && root.right) nodes.push(root.right.val);
+    if (!root.right && root.left) nodes.push(root.left.val);
+    dfs(root.left);
+    dfs(root.right);
+  }
+  dfs(root);
+  return nodes;
 };
 ```
