@@ -324,3 +324,35 @@ var rangeSumBST = function (root, L, R) {
   return sum;
 };
 ```
+
+#### Binary Tree Level Order Traversal II
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrderBottom = function (root) {
+  let array = [];
+
+  function traverse(root, level) {
+    if (!root) return null;
+
+    if (array[level]) array[level].push(root.val);
+    else array[level] = [root.val];
+
+    traverse(root.left, level + 1);
+    traverse(root.right, level + 1);
+  }
+  traverse(root, 0);
+  return array.reverse();
+};
+```
